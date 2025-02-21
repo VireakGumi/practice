@@ -28,7 +28,7 @@
 <body>
 <?php
     $current_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'];
-    $image = $current_url . '/storage/assets/avatars/no_photo.jpg'
+    $image = $current_url . '/storage/assets/avatars/' . $res['avatar'];
 ?>
 <div class="profile-container" id="profile">
     <h2 class="text-center">Welcome to Your Profile</h2>
@@ -36,9 +36,9 @@
         <img id="avatar" class="avatar" src="<?= $image?>" alt="Avatar">
     </div>
     <ul class="list-group mt-4">
-        <li class="list-group-item"><strong>First Name:</strong> <span id="first_name"></span></li>
-        <li class="list-group-item"><strong>Last Name:</strong> <span id="last_name"></span></li>
-        <li class="list-group-item"><strong>Email:</strong> <span id="email"></span></li>
+        <li class="list-group-item"><strong>First Name:</strong> <span id="first_name"><?= $res['first_name']?></span></li>
+        <li class="list-group-item"><strong>Last Name:</strong> <span id="last_name"><?= $res['last_name']?></span></li>
+        <li class="list-group-item"><strong>Email:</strong> <span id="email"><?= $res['email']?></span></li>
     </ul>
     <div class="text-center mt-4">
         <button class="btn btn-danger" onclick="logout()">Logout</button>

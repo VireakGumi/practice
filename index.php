@@ -1,4 +1,5 @@
 <?php
+session_start();
     // ___________________ TO DO __________________
 
     // require database connection

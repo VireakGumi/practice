@@ -1,5 +1,4 @@
 <?php
-     session_start();
     // require user model
     require './model/User.php';
     $user = new User($pdo);
@@ -20,7 +19,7 @@
 
         if ($res) {
             // create token
-            $token = bin2hex(random_bytes($length / 2));
+            $token =  bin2hex(random_bytes(32));
             // store token in database table user_tokens with user_id
             $query = "INSERT INTO user_tokens (user_id, token) VALUES (:user_id, :token)";
             $params = [
@@ -35,15 +34,11 @@
             
             // last step return to page home page with session token
 
-            header('location: /home'); // redirect to home page with token in session
+            header('location: /'); // redirect to home page with token in session
 
         }else {
             header('location: /login');
         }
-
-
-
-
     }
     else {
         header('Location: /login');
